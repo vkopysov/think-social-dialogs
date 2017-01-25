@@ -1,0 +1,16 @@
+{
+    "require": {
+        "cboden/ratchet": "^0.3.6",
+        "symfony/http-foundation": "^3.2"
+    },
+
+    "autoload": {
+        "psr-4": {
+            "Models\\": "app/Models/",
+            "Components\\": "app/Components/",
+            "Controllers\\": "app/Controllers/",
+            "Core\\": "app/Core/"
+        }
+    }
+}
+

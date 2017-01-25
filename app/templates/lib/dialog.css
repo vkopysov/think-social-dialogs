@@ -1,0 +1,281 @@
+/*message area*/
+
+.chat-area {
+    /*background: #f9f9f9;*/
+    float: left;
+    /*height: 500px;*/
+    max-height: 600px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    width: 100%;
+}
+.chat-area ul{
+    padding: 0px;
+}
+.chat-area li {
+    padding: 10px 10px 0;
+}
+
+.chat-area li:last-child {
+    padding-bottom: 10px;
+}
+
+.message-write {
+    background: #f5f3f3 none repeat scroll 0 0;
+    float: left;
+    padding: 15px;
+    width: 100%;
+}
+
+div.col-xs-12. w3-center{
+    padding: 10px 10px;
+}
+
+.dialog-list {
+    overflow-x: hidden;
+    overflow-y: auto;
+    max-height: 300px;
+}
+
+/* dialog-dialog-list*/
+
+ul.dialog-list {
+    padding: 0px;
+}
+
+.dialog-list {
+    list-style: none;
+}
+
+.dialog-list li {
+    border-bottom: 1px solid #eee;
+}
+
+.dialog-list li a img {
+    float: left;
+    width: 45px;
+    height: 45px;
+    margin-right: 0px;
+}
+
+.dialog-list li a {
+    position: relative;
+    display: block;
+    padding: 10px;
+    transition: all .2s ease;
+    -webkit-transition: all .2s ease;
+    -moz-transition: all .2s ease;
+    -ms-transition: all .2s ease;
+    -o-transition: all .2s ease;
+}
+
+.dialog-list li.active /*a*/ {
+    background-color: #a9c1ce;
+}
+
+.dialog-list li a .friend-name,
+.dialog-list li a .friend-name:hover {
+    color: #777;
+}
+
+.dialog-list li a .last-message {
+    width: 75%;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.dialog-list li a .time {
+    position: absolute;
+    top: 10px;
+    right: 8px;
+}
+
+small, .small {
+    font-size: 85%;
+}
+
+.dialog-list li a .chat-alert {
+    position: absolute;
+    right: 8px;
+    top: 27px;
+    font-size: 10px;
+    padding: 3px 5px;
+}
+
+/*messages*/
+
+.chat {
+    display: none;
+    list-style: none;
+    margin: 0;
+}
+
+.chat-message{
+    padding: 20px;
+    -webkit-padding-start: 20px;
+}
+
+.dark {
+    background: #9eb1bb;
+}
+
+.chat li img {
+    border-color: #f1f5fc;
+    width: 45px;
+    height: 45px;
+    border-radius: 50em;
+    -moz-border-radius: 50em;
+    -webkit-border-radius: 50em;
+}
+
+img {
+    max-width: 100%;
+}
+
+.chat-body {
+    padding-bottom: 20px;
+}
+
+.chat li.left .chat-body {
+    margin-left: 70px;
+    background-color: #fff;
+}
+
+.chat li .chat-body {
+    position: relative;
+    font-size: 16px;
+    padding: 10px;
+    border: 1px solid #7d97a5;
+    box-shadow: 0 1px 1px rgba(0,0,0,.05);
+    -moz-box-shadow: 0 1px 1px rgba(0,0,0,.05);
+    -webkit-box-shadow: 0 1px 1px rgba(0,0,0,.05);
+}
+
+.chat li .chat-body .header {
+    padding-bottom: 5px;
+    border-bottom: 1px solid #7d97a5;
+}
+
+.chat li .chat-body p {
+    margin: 0;
+}
+
+.chat li.left .chat-body:before {
+    position: absolute;
+    top: 10px;
+    left: -8px;
+    display: inline-block;
+    background: #fff;
+    width: 16px;
+    height: 16px;
+
+    border-top: 1px solid #7d97a5;
+    border-left: 1px solid #7d97a5;
+    content: '';
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+}
+
+.chat li.right .chat-body:before {
+    position: absolute;
+    top: 10px;
+    right: -8px;
+    display: inline-block;
+    background: #fff;
+    width: 16px;
+    height: 16px;
+    border-top: 1px solid #7d97a5;
+    border-right: 1px solid #7d97a5;
+    content: '';
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+}
+
+.chat li {
+    margin: 5px 0;
+}
+
+.chat li.right .chat-body {
+    margin-right: 70px;
+    background-color: #fff;
+}
+
+.chat-input{
+    resize: vertical;
+}
+
+.primary-font {
+    color: #3c8dbc;
+}
+
+a:hover, a:active, a:focus {
+    text-decoration: none;
+    outline: 0;
+}
+/*btn*/
+
+.btn-dialog {
+    padding: 0px;
+}
+
+button.btn-primary.btn-dialog {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+
+button.btn.btn-load-old{
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+select {
+    margin: 10px;
+}
+
+/*accordion-dialoglist-area*/
+div.w3-accordion-content.w3-container{
+    padding: 0px;
+}
+button.w3-btn-block.w3-btn-block.w3-theme-l1.w3-left-align{
+    width:100%;
+}
+
+div.w3-container.r-dialog{
+    padding: 0px;
+}
+
+#Dialogs {
+    padding: 10px;
+}
+
+/* autocomplete select */
+
+.custom-combobox {
+    position: relative;
+    display: inline-block;
+}
+.custom-combobox-toggle {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin-left: -1px;
+    padding: 0;
+}
+.custom-combobox-input {
+    margin: 0;
+    padding: 5px 10px;
+}
+
+/*select*/
+
+div.chosen-container.chosen-container-single{
+    width: 100%;
+}

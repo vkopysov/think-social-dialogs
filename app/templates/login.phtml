@@ -1,0 +1,29 @@
+<?= $indexHeader ?>
+<!-- Page Container -->
+<div class="w3-container w3-content">
+    <!-- The Grid -->
+    <div class="w3-row w3-center">
+        <div class="sign-in">
+
+            <? if (isset($errors) && is_array($errors)): ?>
+                <ul>
+                    <?php foreach ($errors as $error): ?>
+                        <li> <?= $error; ?></li>
+                    <?php endforeach; ?>
+                </ul>
+            <? endif; ?>
+
+
+            <h3>Login to ThinkSocial</h3>
+            <form method="post" action='#' name="login_form">
+                <p><input type="email"  name="email" placeholder="Email"></p>
+                <p><input type="password"  name="password" placeholder="Password"></p>
+                <input type="submit" name="submit" class="btn btn-primary" value="Sign in">
+                </p>
+            </form>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
