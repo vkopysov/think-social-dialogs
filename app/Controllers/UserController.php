@@ -31,13 +31,10 @@ class UserController extends BaseController
             if ($id = User::checkLogged()) {
                 $unreadCounter = 0;
                 $recipientMapper = new RecipientMapper();
-
                 $dialogRecipients = $recipientMapper->findAll(['user_id' => $id]);
                     if (isset($dialogRecipients)) {
                         foreach ($dialogRecipients as $dialogRecipient) {
-                            if ($dialogRecipient->unreadCounter) {
-                                $unreadCounter += $dialogRecipient->unreadCounter;
-                            }
+                            $unreadCounter += $dialogRecipient->unreadCounter;
                         }
                     }
 
