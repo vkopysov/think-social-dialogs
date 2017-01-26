@@ -29,28 +29,17 @@ class UserController extends BaseController
         $user = $userMapper->findById($id);
         if ($user) {
             if ($id = User::checkLogged()) {
-                $dialogMapper = new DialogMapper();
-                $dialogs = $dialogMapper->getDialogs($id);
-
-                $messages = [];
-                $users = [];
-                $dialogRecipients = [];
                 $unreadCounter = 0;
                 $recipientMapper = new RecipientMapper();
-                $userMapper = new UserMapper();
-                $messageMapper = new MessageMapper();
 
-                foreach ($dialogs as $dialog) {
-                    $messages[$dialog->id] = $messageMapper->findAll(['dialog_room_id' => $dialog->id]);
-                    $dialogRecipients[$dialog->id] = $recipientMapper->findAll(['dialog_room_id' => $dialog->id]);
-
-                    foreach ($dialogRecipients[$dialog->id] as $dialogRecipient) {
-                        $users[$dialog->id][$dialogRecipient->userId] = $userMapper->findById($dialogRecipient->userId);
-                        if ($id == $dialogRecipient->userId) {
-                            $unreadCounter += $dialogRecipient->unreadCounter;
+                $dialogRecipients = $recipientMapper->findAll(['user_id' => $id]);
+                    if (isset($dialogRecipients)) {
+                        foreach ($dialogRecipients as $dialogRecipient) {
+                            if ($dialogRecipient->unreadCounter) {
+                                $unreadCounter += $dialogRecipient->unreadCounter;
+                            }
                         }
                     }
-                }
 
                 $loggedUser = $userMapper->findById($id);
             }
