@@ -1,7 +1,8 @@
 # think-social-dialogs
 ## Обмен сообщениями для учебного проекта ThinkSocial (социальная сеть)
 ## Необходимая настройка:
-###установить php-memcache, php-memcached
+###установить memcached
+### https://www.globo.tech/learning-center/setup-memcache-ubuntu-16/
 
 ## в /etc/php/*version*/apache2/php.ini  добавить строки:
 ### session.save_handler = memcached
