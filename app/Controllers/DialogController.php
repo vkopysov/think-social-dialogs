@@ -26,8 +26,6 @@ class DialogController extends BaseController implements MessageComponentInterfa
 {
     protected $clients;
 
-    protected $updatedRecipient;
-
     public function __construct()
     {
         $this->clients = [];
@@ -58,28 +56,24 @@ class DialogController extends BaseController implements MessageComponentInterfa
     public function onMessage(ConnectionInterface $from, $msg)
     {
         echo $msg;
-        $this->updatedRecipient = [];
         $message = json_decode($msg, true);
         $messageEntity = new Message($message['userId'], $message['roomId'], $message['text']);
         $messageMapper = new MessageMapper();
         $messageMapper->insert($messageEntity);
         $recipientMapper = new RecipientMapper();
         $recipients = $recipientMapper->findAll(['dialog_room_id' => $message['roomId']]);
-        foreach ($this->clients as $userId => $client) {
-            foreach ($recipients as $recipient) {
-                if ($from !== $client) {
-                    if (($message['userId'] != $recipient->userId)
-                        && (!in_array($recipient->userId, $this->updatedRecipient))) {
-                        $updatedRecipient =  $recipientMapper->addUnreadCounter($recipient->userId, $recipient->dialogId);
-                        $this->updatedRecipient[] =  $updatedRecipient;
-                    }
-
-                    if ($userId == $recipient->userId) {
-                        $client->send($msg);
-                    }
+        foreach ($recipients as $recipient) {
+            if (isset($this->clients[$recipient->userId])) {
+                if ($from !== $this->clients[$recipient->userId]) {
+                    $recipientMapper->addUnreadCounter($recipient->userId, $recipient->dialogId);
+                    $this->clients[$recipient->userId]->send($msg);
+                }
+            } else {
+                    $recipientMapper->addUnreadCounter($recipient->userId, $recipient->dialogId);
                 }
             }
-        }
+
+
     }
 
     /**
