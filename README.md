@@ -18,6 +18,9 @@
 
 ## port in ../templates/libs/dialog.js
 
+## Запустить сокет-daemon 
+### php startServer.php (bin folder)
+
 ##  Что умеет
 
 #### + создание диалога с одним и несколькими пользователями
