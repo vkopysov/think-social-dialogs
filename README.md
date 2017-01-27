@@ -6,7 +6,7 @@
 
 ## в /etc/php/*version*/apache2/php.ini  добавить строки:
 ### session.save_handler = memcached
-### session.save_path "*hostname*:11211" (session.save_path "think-social-mvc.local:11211")
+### session.save_path = "*hostname*:11211" (session.save_path = "think-social-mvc.local:11211")
 ### session.cookie_domain = *hostname* (session.cookie_domain = think-social-mvc.local)
 
 ##в /etc/memcached.conf 
